@@ -1,0 +1,54 @@
+Schema
+
+goodID			String	3433222					产品ID
+categoryID		String	11						品类ID
+outerID			String	123456					外部产品ID
+tsc				String	hkjki					淘宝标准产品编码
+barcode			String	6945091708456			产品条码信息，仅在taobao.products.search接口且商城可用
+
+name			String	惠普笔记本				产品名称
+categoryName	String	日用品					商品类目名称
+
+price			String	200.07					产品的市场价.单位为元.精确到2位小数;如:200.07
+shopPrice		String	9182					产品的店内价格
+standardPrice	String	1392					产品的标准价格
+
+desc			String	这是一款产品				产品的描述.最大25000个字节
+bigImgURL		String	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+smallImgURL		String	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+
+modified		String	2000-01-01 00:00:43		修改时间.格式:yyyy-mm-dd hh:mm:ss
+created			String	2000-01-01 00:00:31		创建时间.格式:yyyy-mm-dd hh:mm:ss
+status			Number	3						当前状态(0 商家确认 1 屏蔽 3 小二确认 2 未确认 -1 删除)
+
+level			String	2239					产品的级别level
+rateNum			String	1234					产品的评分次数
+saleNum			String	1234					产品的销售量
+collectNum		String	12345					产品的collect次数（不提供数据，返回0)
+stock			String	9992					產品的庫存數量
+
+verticalMarket	String	3						垂直市场,如：3（3C），4（鞋城）
+binds			String	pid:vid;pid:vid			产品的非关键属性列表.格式:pid:vid;pid:vid.
+saleProps		String	pid:vid;pid:vid			产品的销售属性列表.格式:pid:vid;pid:vid
+props			String	pid:vid;pid:vid			产品的关键属性列表.格式：pid:vid;pid:vid
+propsStr		String	品牌:诺基亚;型号:N73		产品的关键属性字符串列表.比如:品牌:诺基亚;型号:N73
+customerProps	String	20000:优衣库				用户自定义属性,结构：pid1:value1;pid2:value2 
+publicKey		String	5Kb8kLf9zgWQnogidDA76MzPL6TsZZY36hWXMssSzNydYXYB9KF 
+
+
+category
+
+1, mobile, url
+2, pc, url
+3, tablet, url
+4, disk
+5, earphone
+6, keyboard
+7, mouse
+8, car
+9, hat
+10, whores
+11, shoes
+12, laptop
+
+mongo ds051640.mongolab.com:51640/aipustore -u fountain -p opennet
