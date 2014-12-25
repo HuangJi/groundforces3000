@@ -72,6 +72,30 @@ exports.getGoodsByName = function(req, res){
 	});
 };
 
+exports.checkGoodID = function(req, res){
+	// res.render('index');
+	console.log(req.body.checkID);
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		assert.equal(null, err);
+		var collection = db.collection("allGoods");
+		var query = {};
+		query['goodID'] = req.body.checkID;
+		collection.findOne(query, function(err, item) {
+			assert.equal(null, err);
+			console.log(item);
+			if (item == undefined) {
+				res.send(true);
+			}
+			else{
+				res.send(false);
+			}
+			
+			db.close();
+		})
+	});
+};
+
 exports.getGoodsListByCategory = function(req, res){
 	console.log(req.body.categoryName);
 	// Connect using the connection string

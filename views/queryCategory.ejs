@@ -13,7 +13,6 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/spinner.css" rel="stylesheet">
@@ -69,8 +68,16 @@
       
           <h4>请输入类别名稱</h4>
           <div class="col-xs-6 col-sm-12 placeholder">
-            <input id="queryGoodsName" type="text" class="form-control" placeholder="指定产品名称">
-            <button id="ggetGoodsByName" class="btn btn-primary">点击以类别查询!</button>
+          <select class="selectpicker">
+            <option data-icon="glyphicon-heart">行動裝置</option>
+            <option data-icon="glyphicon-heart">桌上型電腦</option>
+            <option data-icon="glyphicon-heart">平板電腦</option>
+            <option data-icon="glyphicon-heart">硬碟</option>
+            <option data-icon="glyphicon-heart">筆記型電腦</option>
+            <option data-icon="glyphicon-heart">上網服務</option>
+          </select>
+            <!-- <input id="queryGoodsName" type="text" class="form-control" placeholder="指定产品名称"> -->
+            <button id="ggetGoodsListByCategory" class="btn btn-primary">点击以类别查询!</button>
             
           </div>
 

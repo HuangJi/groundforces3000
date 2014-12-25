@@ -1,6 +1,6 @@
 	// alert('generater99');
 	$('.spinner').hide();
-
+	// $('.selectpicker').selectpicker();
 // $(document).ready(function(){
 // 	$('body').fadeIn(200, "swing");
 // });
@@ -100,14 +100,38 @@ $('#getGoodsByID').click(function(){
 		//alert('yes call back in generate.js');
 	});
 });
+	// alert($('.selectpicker option:selected').text());
 
 $('#ggetGoodsListByCategory').click(function(){
-	alert('getGoodsListByCategory!');
+	$('.spinner').show();
+	$('#goodsGridView').empty();
+	// alert($('.selectpicker option:selected').text());
 	var object = {};
-	object.categoryName = $('#queryCategory').val();
+	object.categoryName = $('.selectpicker option:selected').text();
 
 	$.post("/getGoodsListByCategory", object, function(data){
-		console.log(data);
+		$('.spinner').hide();
+		console.log(data.length);
+		var goodItem = [];
+		if (data.length == 0){
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>');
+		}
+		else{
+			for (var i = 0; i < data.length; i++) {
+				goodItem[i] = '<div class="col-xs-6 col-sm-3 placeholder">' +
+				'<img src="' + data[i].bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
+				'<h3>' + data[i].name + '</h3>' + 
+				'<h4>ID: '+ data[i].goodID + '</h4>' + 
+				'<h5>¥' + data[i].price + '</h5>' + 
+				'<p>存货量:' + data[i].stock + '</p>' +
+				'<span class="text-muted">' + data[i].desc + '</span>' +
+				'</div>';
+
+				$('#goodsGridView').append(goodItem[i]);
+				
+			};
+		}
+		
 
 		// $('#queryCategoryResult').text(JSON.stringify(data));
 		//alert('yes call back in generate.js');

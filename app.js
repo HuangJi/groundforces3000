@@ -32,6 +32,7 @@ app.get('/queryCategoryPage', index.queryCategoryPageLoad);
 //routes, functions
 app.get('/', index.load);
 app.post('/getGoodsByID', index.getGoodsByID);
+app.post('/checkGoodID', index.checkGoodID);
 app.post('/getGoodsByName', index.getGoodsByName);
 app.post('/getGoodsListByCategory', index.getGoodsListByCategory);
 app.post('/addNewGoods', index.addNewGoods);
