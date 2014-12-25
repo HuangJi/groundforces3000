@@ -163,14 +163,6 @@ $('#ddeleteGoodsByName').click(function(){
 });
 
 
-// $('#modifyGoodsByName').click(function(){
-	
-// });
-
-// $('#modifyGoodsByID').click(function(){
-	
-// });
-
 $('#toModifyPage').click(function(){
 	$('body').fadeOut(100, 'swing');
 });
