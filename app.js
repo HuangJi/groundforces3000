@@ -70,5 +70,5 @@ var Db = require('mongodb').Db,
   });
 
 app.listen(portNum, function() {
-  console.log("Listening on " + port);
+  console.log("Listening on " + portNum);
 });
