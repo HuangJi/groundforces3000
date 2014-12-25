@@ -12,7 +12,7 @@ var favicon = require('static-favicon');
 
 var app = express();
 
-app.set('port', portNum);
+// app.set('port', portNum);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -69,4 +69,6 @@ var Db = require('mongodb').Db,
     })
   });
 
-app.listen(3000);
+app.listen(portNum, function() {
+  console.log("Listening on " + port);
+});
