@@ -4,7 +4,7 @@ $('#modifyCoulumns').hide();
 // $('#queryGoodsName').val("asf");
 // alert('a');
 
-var objectForModify = {};
+// var objectForModify = {};
 
 $('#modifyGoodView').mousemove(function(event){
 	$('#modifyGoodView').removeClass('animated tada');
@@ -18,7 +18,7 @@ $('#mgetGoodsByName').click(function(){
 
 	$.post("/getGoodsByName", object, function(data){
 		$('.spinner').hide();
-		objectForModify = JSON.parse( JSON.stringify( data ) );
+		// objectForModify = JSON.parse( JSON.stringify( data ) );
 		console.log(data);
 		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder targetGoods">' +
 			'<img style="max-width:70%;max-height:70%;" src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
