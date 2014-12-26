@@ -4,6 +4,8 @@ $('#modifyCoulumns').hide();
 // $('#queryGoodsName').val("asf");
 // alert('a');
 
+var objectForModify = {};
+
 $('#modifyGoodView').mousemove(function(event){
 	$('#modifyGoodView').removeClass('animated tada');
 });
@@ -16,7 +18,7 @@ $('#mgetGoodsByName').click(function(){
 
 	$.post("/getGoodsByName", object, function(data){
 		$('.spinner').hide();
-
+		objectForModify = data;
 		console.log(data);
 		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder targetGoods">' +
 			'<img style="max-width:70%;max-height:70%;" src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
@@ -118,7 +120,25 @@ $('#confirmButton').click(function(){
 	object.stock = $('#stock').val();
 	object.props = $('#props').val();
 	object.publicKey = $('#publicKey').val();
-
+	object.modified = objectForModify.modified;
+	object.created = objectForModify.created;
+	object.status = objectForModify.status;
+	object.level = objectForModify.level;
+	object.rateNum = objectForModify.rateNum;
+	object.saleNum = objectForModify.saleNum;
+	object.collectNum = objectForModify.collectNum;
+	object.verticalMarket = objectForModify.verticalMarket;
+	object.binds = objectForModify.binds;
+	object.saleProps = objectForModify.saleProps;
+	object.propsStr = objectForModify.propsStr;
+	object.customerProps = objectForModify.customerProps;
+	object.shopPrice = objectForModify.shopPrice;
+	object.standardPrice = objectForModify.standardPrice;
+	object.outerID = objectForModify.outerID;
+	object.tsc = objectForModify.tsc;
+	object.barcode = objectForModify.barcode;
+	object.smallImgURL = objectForModify.smallImgURL;
+	
 	$.post("/modifyGoodsByID", object, function(data){
 		console.log(data);
 		alert('您的产品资料已修改！');

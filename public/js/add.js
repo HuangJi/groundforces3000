@@ -39,7 +39,6 @@ $('#addNewGoods').click(function(){
 				object.props = $('#props').val();
 				object.publicKey = $('#publicKey').val();
 
-
 				object.modified = $('#modified').val();
 				object.created = $('#created').val();
 				object.status = $('#status').val();
@@ -58,7 +57,7 @@ $('#addNewGoods').click(function(){
 				object.tsc = $('#tsc').val();
 				object.barcode = $('#barcode').val();
 				object.smallImgURL = $('#smallImgURL').val();
-				
+
 				$('.spinner').show();
 				$.post("/addNewGoods", object, function(data){
 					$('.spinner').hide();
