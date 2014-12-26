@@ -54,7 +54,7 @@ $('#ggetGoodsByName').click(function(){
 		$('.spinner').hide();
 
 		console.log(data);
-		var goodItem = '<div class="col-xs-6 col-sm-3 placeholder">' +
+		var goodItem = '<div class="col-xs-6 col-sm-3 placeholder targetGoods">' +
 			'<img src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
 			'<h3>' + data.name + '</h3>' + 
 			'<h4>ID: '+ data.goodID + '</h4>' + 
@@ -68,6 +68,7 @@ $('#ggetGoodsByName').click(function(){
 		}
 		else{
 			$('#goodsGridView').append(goodItem);
+			$('.targetGoods').addClass('animated fadeInUp');
 		}
 		// $('#queryGoodsNameResult').text(JSON.stringify(data));
 		//alert('yes call back in generate.js');
@@ -84,7 +85,7 @@ $('#getGoodsByID').click(function(){
 	$.post("/getGoodsByID", object, function(data){
 		$('.spinner').hide();
 		console.log(data);
-		var goodItem = '<div class="col-xs-6 col-sm-3 placeholder">' +
+		var goodItem = '<div class="col-xs-6 col-sm-3 placeholder targetGoods">' +
 			'<img src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
 			'<h3>' + data.name + '</h3>' + 
 			'<h4>ID: '+ data.goodID + '</h4>' + 
@@ -99,6 +100,7 @@ $('#getGoodsByID').click(function(){
 		}
 		else{
 			$('#goodsGridView').append(goodItem);
+			$('.targetGoods').addClass('animated fadeInUp');
 		}
 		// $('#queryGoodsIDResult').text(JSON.stringify(data));
 		//alert('yes call back in generate.js');
@@ -122,7 +124,7 @@ $('#ggetGoodsListByCategory').click(function(){
 		}
 		else{
 			for (var i = 0; i < data.length; i++) {
-				goodItem[i] = '<div class="col-xs-6 col-sm-3 placeholder">' +
+				goodItem[i] = '<div class="col-xs-6 col-sm-3 placeholder targetGoods">' +
 				'<img src="' + data[i].bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
 				'<h3>' + data[i].name + '</h3>' + 
 				'<h4>ID: '+ data[i].goodID + '</h4>' + 
@@ -132,7 +134,7 @@ $('#ggetGoodsListByCategory').click(function(){
 				'</div>';
 
 				$('#goodsGridView').append(goodItem[i]);
-				
+				$('.targetGoods').addClass('animated fadeInUp');
 			};
 		}
 		
@@ -147,40 +149,46 @@ $('#ggetGoodsListByCategory').click(function(){
 
 
 $('#ddeleteGoodsByID').click(function(){
-	$('.spinner').show();
+	
 	$('#goodsGridView').empty();
 	var object = {};
 	object.deletedID = $('#ddeletedID').val();
-
-	$.post("/deleteGoodsByID", object, function(data){
-		$('.spinner').hide();
-		if (data == 'deleted'){
-			alert('您的产品已删除！');
-		}
-		else{
-			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
-		}
-		console.log(data);
-		
-	});
+	if (confirm('产品ID: ' + object.deletedID + '  确定删除吗？')){
+		$('.spinner').show();
+		$.post("/deleteGoodsByID", object, function(data){
+			$('.spinner').hide();
+			if (data == 'deleted'){
+				alert('您的产品已删除！');
+			}
+			else{
+				$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
+			}
+			console.log(data);
+			
+		});
+	}
+	
 });
 
 $('#ddeleteGoodsByName').click(function(){
-	$('.spinner').show();
 	$('#goodsGridView').empty();
 	var object = {};
 	object.deletedName = $('#ddeletedName').val();
 
-	$.post("/deleteGoodsByName", object, function(data){
-		$('.spinner').hide();
-		if (data == 'deleted'){
-			alert('您的产品已删除！');
-		}
-		else{
-			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
-		}
-		console.log(data);
-	});
+	if (confirm('产品名称: ' + object.deletedName + '  确定删除吗？')){
+		$('.spinner').show();
+		$.post("/deleteGoodsByID", object, function(data){
+			$('.spinner').hide();
+			if (data == 'deleted'){
+				alert('您的产品已删除！');
+			}
+			else{
+				$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
+			}
+			console.log(data);
+			
+		});
+	}
 });
 
 

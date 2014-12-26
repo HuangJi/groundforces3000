@@ -18,7 +18,7 @@ $('#mgetGoodsByName').click(function(){
 		$('.spinner').hide();
 
 		console.log(data);
-		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder">' +
+		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder targetGoods">' +
 			'<img style="max-width:70%;max-height:70%;" src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
 			'<h3>' + data.name + '</h3>' + 
 			'<h4>ID: '+ data.goodID + '</h4>' + 
@@ -32,6 +32,7 @@ $('#mgetGoodsByName').click(function(){
 		}
 		else{
 			$('#modifyGoodView').append(goodItem);
+			$('.targetGoods').addClass('animated fadeInUp');
 			$('#modifyCoulumns').show();
 			$('#queryCoulumns').hide();
 
@@ -63,7 +64,7 @@ $('#mgetGoodsByID').click(function(){
 		$('.spinner').hide();
 
 		console.log(data);
-		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder">' +
+		var goodItem = '<div class="col-xs-6 col-sm-6 placeholder targetGoods">' +
 			'<img style="max-width:70%;max-height:70%;" src="' + data.bigImgURL + '" class="img-responsive" alt="Generic placeholder thumbnail">' +
 			'<h3>' + data.name + '</h3>' + 
 			'<h4>ID: '+ data.goodID + '</h4>' + 
@@ -77,6 +78,7 @@ $('#mgetGoodsByID').click(function(){
 		}
 		else{
 			$('#modifyGoodView').append(goodItem);
+			$('.targetGoods').addClass('animated fadeInUp');
 			$('#modifyCoulumns').show();
 			$('#queryCoulumns').hide();
 
