@@ -149,7 +149,11 @@ exports.deleteGoodsByName = function(req, res){
 				// assert.equal(null, err);
 				// assert.equal(1, numberOfRemovedDocs);
 				console.log('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
-				res.send('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				if (numberOfRemovedDocs != 0){
+					res.send('deleted');
+				}else{
+					res.send('nothing');
+				}
 				db.close();
 			});
 		})
@@ -175,7 +179,12 @@ exports.deleteGoodsByID = function(req, res){
 				// assert.equal(null, err);
 				// assert.equal(1, numberOfRemovedDocs);
 				console.log('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
-				res.send('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				if (numberOfRemovedDocs != 0){
+					res.send('deleted');
+				}else{
+					res.send('nothing');
+				}
+				
 				db.close();
 			});
 		})
@@ -193,6 +202,7 @@ exports.modifyGoodsByID = function(req, res){
 	// var data;
 	var selector = {};
 	selector['goodID'] = req.body.modifyID;
+	delete req.body['modifyID'];
 	// var obj = {};
 	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		

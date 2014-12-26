@@ -73,7 +73,7 @@ $('#mgetGoodsByID').click(function(){
 			'</div>';
 		// $('#goodsGridView').empty();
 		if (data.goodID == undefined){
-			$('#modifyGoodView').append('<h2 style="color:#CA054D">查无此物！</h2>');
+			$('#modifyGoodView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');
 		}
 		else{
 			$('#modifyGoodView').append(goodItem);
@@ -119,7 +119,7 @@ $('#confirmButton').click(function(){
 
 	$.post("/modifyGoodsByID", object, function(data){
 		console.log(data);
-		alert('call back confirmButton!');
+		alert('您的产品资料已修改！');
 	});
 });
 

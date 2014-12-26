@@ -2,7 +2,7 @@
 
 
 $('#addNewGoods').click(function(){
-	alert('add click!');
+	// alert('add click!');
 	if ($('#goodsID').val() == "" ||
 		$('#categoryID').val() == "" ||
 		$('#name').val() == "" ||
@@ -61,7 +61,7 @@ $('#addNewGoods').click(function(){
 				$('.spinner').show();
 				$.post("/addNewGoods", object, function(data){
 					$('.spinner').hide();
-
+					alert('您的产品已添加！')
 					console.log(data);
 					//alert('yes call back in generate.js');
 				});

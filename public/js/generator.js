@@ -5,6 +5,10 @@
 // 	$('body').fadeIn(200, "swing");
 // });
 
+$('#goodsGridView').mousemove(function(event){
+	$('#goodsGridView').removeClass('animated tada');
+});
+
 $('#generate').click(function(){
 	$('#operation').text(
 		'db.allGoods.insert({goodID:"' + $('#goodsID').val() +
@@ -60,7 +64,7 @@ $('#ggetGoodsByName').click(function(){
 			'</div>';
 		// $('#goodsGridView').empty();
 		if (data.goodID == undefined){
-			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>');
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
 		}
 		else{
 			$('#goodsGridView').append(goodItem);
@@ -91,7 +95,7 @@ $('#getGoodsByID').click(function(){
 
 		
 		if (data.name == undefined){
-			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>');
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
 		}
 		else{
 			$('#goodsGridView').append(goodItem);
@@ -114,7 +118,7 @@ $('#ggetGoodsListByCategory').click(function(){
 		console.log(data.length);
 		var goodItem = [];
 		if (data.length == 0){
-			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>');
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');
 		}
 		else{
 			for (var i = 0; i < data.length; i++) {
@@ -143,22 +147,39 @@ $('#ggetGoodsListByCategory').click(function(){
 
 
 $('#ddeleteGoodsByID').click(function(){
+	$('.spinner').show();
+	$('#goodsGridView').empty();
 	var object = {};
 	object.deletedID = $('#ddeletedID').val();
 
 	$.post("/deleteGoodsByID", object, function(data){
+		$('.spinner').hide();
+		if (data == 'deleted'){
+			alert('您的产品已删除！');
+		}
+		else{
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
+		}
 		console.log(data);
-		alert('call back deleteGoodsByID!');
+		
 	});
 });
 
 $('#ddeleteGoodsByName').click(function(){
+	$('.spinner').show();
+	$('#goodsGridView').empty();
 	var object = {};
 	object.deletedName = $('#ddeletedName').val();
 
 	$.post("/deleteGoodsByName", object, function(data){
+		$('.spinner').hide();
+		if (data == 'deleted'){
+			alert('您的产品已删除！');
+		}
+		else{
+			$('#goodsGridView').append('<h2 style="color:#CA054D">查无此物！</h2>').addClass('animated tada');;
+		}
 		console.log(data);
-		alert('call back deletedName!');
 	});
 });
 
