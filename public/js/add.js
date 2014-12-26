@@ -58,6 +58,7 @@ $('#addNewGoods').click(function(){
 				object.tsc = $('#tsc').val();
 				object.barcode = $('#barcode').val();
 				object.smallImgURL = $('#smallImgURL').val();
+				
 				$('.spinner').show();
 				$.post("/addNewGoods", object, function(data){
 					$('.spinner').hide();
