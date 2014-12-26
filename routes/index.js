@@ -183,10 +183,44 @@ exports.deleteGoodsByID = function(req, res){
 	});
 };
 
-exports.modifyGoodsByName = function(req, res){
-	res.render('index');
-};
+// exports.modifyGoodsByName = function(req, res){
+
+// 	res.render('index');
+// };
 
 exports.modifyGoodsByID = function(req, res){
-	res.render('index');
+	console.log(req.body.modifyID);
+	// var data;
+	var selector = {};
+	selector['goodID'] = req.body.modifyID;
+	// var obj = {};
+	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		
+		// Fetch a collection to insert document into
+		var collection = db.collection("allGoods");    
+
+		// Remove the document by selector
+		collection.update(selector, req.body, function(err, result) {
+			assert.equal(null, err);
+			assert.equal(1, result);
+
+			// Fetch the document that we modified and check if it got inserted correctly
+			// collection.findOne({a:1}, function(err, item) {
+			// 	assert.equal(null, err);
+			// 	assert.equal(1, item.a);
+			// 	assert.equal(2, item.b);
+			// 	db.close();
+			// });
+			res.send('kerker modify!');
+			db.close();
+		});
+		
+	
+	});
+
+	// res.render('index');
 };
+
+
+
+

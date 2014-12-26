@@ -16,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/spinner.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/animate.css">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!-- // <script src="js/ie-emulation-modes-warning.js"></script> -->
@@ -72,20 +72,21 @@
           <h3 class="sub-header">请输入货物的名称或是ID以进行修改</h3>
           <div id="queryCoulumns"class="col-xs-6 col-sm-6 placeholder">
             <input id="queryGoodsName" type="text" class="form-control" placeholder="指定产品名称">
-            <button id="ggetGoodsByName" class="btn btn-primary">点击以名称查询!</button>
+            <button id="mgetGoodsByName" class="btn btn-primary">点击以名称查询!</button>
             <input id="queryGoodsID" type="text" class="form-control" placeholder="指定产品ID">
-              <button id="getGoodsByID" class="btn btn-primary" >点击以ID查询!</button>
+              <button id="mgetGoodsByID" class="btn btn-primary" >点击以ID查询!</button>
             <div class="spinner">
               <div class="rect1"></div>
               <div class="rect2"></div>
               <div class="rect3"></div>
               <div class="rect4"></div>
               <div class="rect5"></div>
+              <p>正努力为您加载中！</p>
             </div>
           </div>
           <div id="modifyCoulumns" class="col-xs-6 col-sm-6 placeholder">
             <div style="width:90%; margin: 10px left;" class="quickAddInformation">
-              <input id="goodsID" type="text" class="form-control mar" placeholder="goodsID">
+              产品ID<input id="goodsID" type="text" class="form-control " placeholder="goodsID">
               <input id="categoryID" type="text" class="form-control mar" placeholder="categoryID">
               <input id="name" type="text" class="form-control mar" placeholder="name">
               <input id="categoryName" type="text" class="form-control mar" placeholder="categoryName">
@@ -97,30 +98,26 @@
               <input id="props" type="text" class="form-control mar" placeholder="hot">
               <input id="publicKey" type="text" class="form-control mar" placeholder="publicKey">
               <div style="margin: 5px auto;">
-                <button id="confirm" class="btn btn-warning">修改</button>
-                <button id="cancel" class="btn btn-info">取消</button>
+                <button id="confirmButton" class="btn btn-warning">修改</button>
+                <button id="cancelButton" class="btn btn-info">取消</button>
                 <!-- <a id="moreInformationButton">more detail</a> -->
               </div>
             </div> 
           </div>
           
       
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-6 placeholder">
+          <div id="modifyGoodView" class="row placeholders">
+            <!-- <div class="col-xs-6 col-sm-6 placeholder">
               <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h3>iPhone 6 Plus</h3>
               <h4>ID: 9921</h4>
               <h5>¥21900</h5>
               <p>Stock:1222</p>
               <span class="text-muted">Something else</span>
-
-            </div>
+            </div> -->
             
           </div>
-          <div class="col-xs-6 col-sm-6 placeholder">
-            
 
-          </div>
           
 
           

@@ -39,7 +39,7 @@ app.post('/addNewGoods', index.addNewGoods);
 app.post('/deleteGoodsByName', index.deleteGoodsByName);
 app.post('/deleteGoodsByID', index.deleteGoodsByID);
 // app.post('/modifyGoodsByName', index.modifyGoodsByName);
-// app.post('/modifyGoodsByID', index.modifyGoodsByID);
+app.post('/modifyGoodsByID', index.modifyGoodsByID);
 
 // app.get('/', function(req, res){
 //     res.send('hello world');
