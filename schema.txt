@@ -52,3 +52,11 @@ category
 12, laptop
 
 mongo ds051640.mongolab.com:51640/aipustore -u fountain -p opennet
+
+
+todo list:
+
+1. 上傳圖片？需要可以切割大小？
+2. 現在UI優化為先
+3. 
+
