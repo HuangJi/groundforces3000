@@ -60,10 +60,10 @@ var Db = require('mongodb').Db,
     assert = require('assert');
 
   // Connect using the connection string
-  MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
     assert.equal(null, err);
-    var collection = db.collection("mobiles");
-    collection.findOne({stock:7000}, function(err, item) {
+    var collection = db.collection("allGoods");
+    collection.findOne({"idx":129}, function(err, item) {
       assert.equal(null, err);
       console.log(item);
       db.close();

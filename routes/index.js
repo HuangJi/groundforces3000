@@ -35,7 +35,7 @@ exports.getGoodsByID = function(req, res){
 	console.log('yo!');
 	console.log(req.body.goodID);
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
@@ -58,7 +58,7 @@ exports.getGoodsByName = function(req, res){
 	// res.render('index');
 	console.log(req.body.goodsName);
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
@@ -76,7 +76,7 @@ exports.checkGoodID = function(req, res){
 	// res.render('index');
 	console.log(req.body.checkID);
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
@@ -99,7 +99,7 @@ exports.checkGoodID = function(req, res){
 exports.getGoodsListByCategory = function(req, res){
 	console.log(req.body.categoryName);
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
@@ -119,7 +119,7 @@ exports.addNewGoods = function(req, res){
 	console.log(req.body.operation);
 	var data;
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		collection.insert(req.body, function(err, item) {
@@ -139,7 +139,7 @@ exports.deleteGoodsByName = function(req, res){
 	var selector = {};
 	selector['name'] = req.body.deletedName;
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		
 		// Fetch a collection to insert document into
 		db.collection("allGoods", function(err, collection) {		    
@@ -169,7 +169,7 @@ exports.deleteGoodsByID = function(req, res){
 	var selector = {};
 	selector['goodID'] = req.body.deletedID;
 	// Connect using the connection string
-  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+  	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		
 		// Fetch a collection to insert document into
 		db.collection("allGoods", function(err, collection) {		    
@@ -204,7 +204,7 @@ exports.modifyGoodsByID = function(req, res){
 	selector['goodID'] = req.body.modifyID;
 	delete req.body['modifyID'];
 	// var obj = {};
-	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+	MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
 		
 		// Fetch a collection to insert document into
 		var collection = db.collection("allGoods");    
