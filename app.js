@@ -47,29 +47,29 @@ app.post('/modifyGoodsByID', index.modifyGoodsByID);
 
 
 // Mongodb construct.
-var Db = require('mongodb').Db,
-    MongoClient = require('mongodb').MongoClient,
-    Server = require('mongodb').Server,
-    ReplSetServers = require('mongodb').ReplSetServers,
-    ObjectID = require('mongodb').ObjectID,
-    Binary = require('mongodb').Binary,
-    GridStore = require('mongodb').GridStore,
-    Grid = require('mongodb').Grid,
-    Code = require('mongodb').Code,
-    BSON = require('mongodb').pure().BSON,
-    assert = require('assert');
+// var Db = require('mongodb').Db,
+//     MongoClient = require('mongodb').MongoClient,
+//     Server = require('mongodb').Server,
+//     ReplSetServers = require('mongodb').ReplSetServers,
+//     ObjectID = require('mongodb').ObjectID,
+//     Binary = require('mongodb').Binary,
+//     GridStore = require('mongodb').GridStore,
+//     Grid = require('mongodb').Grid,
+//     Code = require('mongodb').Code,
+//     BSON = require('mongodb').pure().BSON,
+//     assert = require('assert');
 
-  // Connect using the connection string
-  MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
-    assert.equal(null, err);
-    var collection = db.collection("allGoods");
-    collection.findOne({"idx":129}, function(err, item) {
-      assert.equal(null, err);
-      console.log(item);
-      db.close();
-    })
-  });
+//   // Connect using the connection string
+//   MongoClient.connect("mongodb://124.250.208.21/aipustore", {native_parser:true}, function(err, db) {
+//     assert.equal(null, err);
+//     var collection = db.collection("allGoods");
+//     collection.findOne({"idx":129}, function(err, item) {
+//       assert.equal(null, err);
+//       console.log(item);
+//       db.close();
+//     })
+//   });
 
-app.listen(portNum, function() {
+app.listen(portNum, "0.0.0.0", function() {
   console.log("Listening on " + portNum);
 });

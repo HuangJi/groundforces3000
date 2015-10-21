@@ -60,3 +60,30 @@ todo list:
 2. 現在UI優化為先
 3. 
 
+
+mongodb://124.250.208.21/aipustore
+
+
+{
+    "categoryID": "1",
+    "categoryName": "行動裝置",
+    "imgURL": "https://dl.dropboxusercontent.com/u/79375953/after2013/categoryIcon/sony_xperia-wallpaper-960x640-2.jpg"
+}
+
+{
+    "categoryID": "2",
+    "categoryName": "桌上型電腦",
+    "imgURL": "https://dl.dropboxusercontent.com/u/79375953/after2013/categoryIcon/146564-1-CN77O.jpg"
+}
+
+{
+ 	"categoryID": "3",
+    "categoryName": "平板電腦",
+    "imgURL": "https://dl.dropboxusercontent.com/u/79375953/after2013/categoryIcon/apple_2-wallpaper-960x640.jpg"
+}
+
+ServerAdmin a1345962293@gmail.com
+    DocumentRoot /www/docs/dummy-host.example.com
+    ServerName dummy-host.example.com
+    ErrorLog logs/dummy-host.example.com-error_log
+    CustomLog logs/dummy-host.example.com-access_log common
